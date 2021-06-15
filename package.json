@@ -1,0 +1,15 @@
+{
+  "name": "weather-indicator",
+  "version": "1.0.0",
+  "description": "Weather indicator custom view for Deep Intelligence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AgustinSRG",
+  "license": "ISC",
+  "dependencies": {
+    "static-server": "^2.2.1"
+  }
+}
