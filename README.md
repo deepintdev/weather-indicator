@@ -10,7 +10,7 @@ You need an account in [Deep Intelligence](https://app.deepint.net/)
 
 Set up a custom visualization with:
 
-**URL:** `https://example.com/example`
+**URL:** `https://deepintdev.github.io/weather-indicator/`
 
 | Key | Value | Example |
 | --- | --- | --- |
