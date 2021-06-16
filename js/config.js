@@ -107,80 +107,100 @@ window.LOCALES = {
             states: {
                 "sunny": {
                     en: "Sunny",
+                    es: "Soleado",
                 },
                 "partly_cloudy": {
                     en: "Partly Cloudy",
+                    es: "Parcialmente nublado",
                 },
                 "cloudy": {
                     en: "Cloudy",
+                    es: "Nublado",
                 },
                 "rain_heavy": {
                     en: "Rain (Heavy)",
+                    es: "Chubascos",
                 },
                 "rain_light": {
                     en: "Rain (Light)",
+                    es: "Lluvia ligera",
                 },
                 "rain": {
                     en: "Rain",
+                    es: "Lluvia",
                 },
                 "snow": {
                     en: "Snow",
+                    es: "Nieve",
                 },
                 "thunderstorms": {
-                    en: "Thunderstorms"
+                    en: "Thunderstorms",
+                    es: "Tormentas",
                 },
             },
         },
         temperature: {
             name: {
                 en: "Temperature",
+                es: "Temperatura",
             },
             units: {
                 celsius: {
                     en: "Celsius degrees",
+                    es: "Grados Celsius",
                 },
                 fahrenheit: {
                     en: "Fahrenheit degrees",
+                    es: "Grados Fahrenheit",
                 },
             },
         },
         humidity: {
             name: {
                 en: "Humidity",
+                es: "Humedad",
             }
         },
         wind_speed: {
             name: {
                 en: "Wind Speed",
+                es: "Velocidad del viento",
             }
         },
         wind_gust: {
             name: {
                 en: "Wind Gust",
+                es: "Ráfaga de viento",
             }
         },
         visibility: {
             name: {
                 en: "Visibility",
+                es: "Visibilidad",
             }
         },
         dew_point: {
             name: {
                 en: "Dew Point",
+                es: "Punto de rocío",
             }
         },
         pressure: {
             name: {
                 en: "Pressure",
+                es: "Presión",
             }
         },
         rainfall: {
             name: {
                 en: "Rainfall",
+                es: "Precipitaciones",
             }
         },
     },
 };
+
+window.PREF_LANG = (navigator.language + "").split("-")[0];
 
 window.getText = function(path) {
     var parts = ("" + path).split(".");
@@ -192,7 +212,7 @@ window.getText = function(path) {
     }
 
     if (pointer) {
-        return pointer[navigator.language] || pointer["en"] || path;
+        return pointer[PREF_LANG] || pointer["en"] || path;
     } else {
         return path;
     }
