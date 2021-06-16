@@ -1,12 +1,13 @@
 // © Copyright 2020 by Deep Intelligence
 // Custom visualization script
-// Version 1.0
+// Version 2.0
 
 window.DeepIntelligence = {};
 
 DeepIntelligence.loaded = false;
 DeepIntelligence.url = window.ENV_API_URL || "https://app.deepint.net/";
 DeepIntelligence.token = "";
+DeepIntelligence.source = "";
 DeepIntelligence.readyListeners = [];
 DeepIntelligence.dataCallback = null;
 
@@ -22,7 +23,7 @@ var getParameterByName = function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-var jsonGET = function (url, callback) {
+var jsonGET = function (url, headers, callback) {
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
@@ -39,19 +40,27 @@ var jsonGET = function (url, callback) {
             } else if (this.status === 0 || this.status === 503 || this.status === 503) {
                 // Must try again
                 setTimeout(function () {
-                    jsonGET(url, callback);
+                    jsonGET(url, headers, callback);
                 }, 500);
             }
         }
     };
 
     xmlhttp.open("GET", url, true);
+
+    if (headers) {
+        for (var i = 0; i < headers.length; i++) {
+            xmlhttp.setRequestHeader(headers[i].key, headers[i].value);
+        }
+    }
+
     xmlhttp.send();
 };
 
 DeepIntelligence.onload = function () {
     this.loaded = true;
     this.token = this.param("di_token") || "";
+    this.source = this.param("source") || "";
 
     for (var i = 0; i < this.readyListeners.length; i++) {
         try {
@@ -107,7 +116,18 @@ DeepIntelligence.fetchData = function (projection, callback) {
     if (!this.token) {
         return callback(new Error("Could not fetch visualization data. No token provided."));
     }
-    jsonGET((new URL("/api/views/custom/fetch?token=" + encodeURIComponent(this.token) + "&projection=" + encodeURIComponent(projection), this.url)).toString(), function (response) {
+    var url;
+    var headers = null;
+    if (this.source) {
+        url = (new URL("/api/views/custom/fetch?source=" + encodeURIComponent(this.source) + "&projection=" + encodeURIComponent(projection), this.url)).toString();
+        headers = [{
+            key: "x-custom-jwt",
+            value: this.token,
+        }];
+    } else {
+        url = (new URL("/api/views/custom/fetch?token=" + encodeURIComponent(this.token) + "&projection=" + encodeURIComponent(projection), this.url)).toString();
+    }
+    jsonGET(url, headers, function (response) {
         if (response === null) {
             return callback(new Error("Could not fetch visualization data. Invalid or expired token provided."));
         } else {
