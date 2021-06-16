@@ -13,6 +13,11 @@ function deepintCustomView() {
         // Set config
         tweekConfiguration();
 
+        // Theme
+        if (DeepIntelligence.param("theme") === "dark") {
+            document.querySelector("body").classList.add("dark-theme");
+        }
+
         // Extract custom parameters given by the user
 
         if (DeepIntelligence.param("data:timestamp") === null) {

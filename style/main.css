@@ -135,3 +135,16 @@ body {
 .vertical-split {
     width: 100%;
 }
+
+.dark-theme {
+    background-color: #263238;
+    color: white;
+}
+
+.dark-theme .lds-facebook div {
+    background-color: #fefefe;
+}
+
+.dark-theme .temp-switch .chosen {
+    color: white;
+}
