@@ -16,7 +16,7 @@ Set up a custom visualization with:
 | --- | --- | --- |
 | data:timestamp | The position of the feature to use as timestamp for the measure. Can be a date type (preferred), but it also can be a numeric UTC timestamp. | 0 |
 | data:variable | The position of the feature to use as variable name of the measure. | 1 |
-| data:value | The position of the feature to use as the value of the measure. | 1 |
+| data:value | The position of the feature to use as the value of the measure. | 2 |
 
 ## Customization
 
@@ -26,6 +26,7 @@ Here is a list of parametters you can set to customize the visualization.
 | --- | --- | --- |
 | layout | Can be `horizontal` or `vertical`. Is set to horizontal by default. | vertical |
 | variables:display | List of variables to Display. Also sets the order. Full List: `weather_state`, `temperature`, `rainfall`, `humidity`, `wind_speed`, `visibility`, `wind_gust`, `pressure`, `dew_point` | rainfall, humidity, wind_speed |
+| weather_state:var | Name of the weather_state variable in the data. By default: `weather_state` | weather_state |
 | temperature:var | Name of the temperature variable in the data. By default: `temp` | temp |
 | temperature:mag | Can be `C` (celsius) or `F` (fahrenheit) depending on the magnitude of the temperature in the data. | C |
 | humidity:var | Name of the humidity variable in the data. By default: `humidity` | humidity |
@@ -46,4 +47,12 @@ Here is a list of parametters you can set to customize the visualization.
 | dew_point:var | Name of the dew_point variable in the data. By default: `dew_point` | dew_point |
 | dew_point:mag | Magnitude to append to the value for `dew_point` | °C |
 | dew_point:cf | Conversion factor for `dew_point` from the data to the display. | 1 |
+| weather_state:s:sunny | The value of `weather_state` in the data for the `sunny` state | sunny |
+| weather_state:s:cloudy | The value of `weather_state` in the data for the `cloudy` state | cloudy |
+| weather_state:s:rain | The value of `weather_state` in the data for the `rain` state | rain |
+| weather_state:s:partly_cloudy | The value of `weather_state` in the data for the `partly_cloudy` state | partly_cloudy |
+| weather_state:s:rain_light | The value of `weather_state` in the data for the `rain_light` state | rain_light |
+| weather_state:s:rain_heavy | The value of `weather_state` in the data for the `rain_heavy` state | rain_heavy |
+| weather_state:s:snow | The value of `weather_state` in the data for the `snow` state | snow |
+| weather_state:s:thunderstorms | The value of `weather_state` in the data for the `thunderstorms` state | thunderstorms |
 

@@ -245,6 +245,46 @@ window.tweekConfiguration = function () {
         });
     }
 
+    // Weather state
+
+    if (DeepIntelligence.param("weather_state:var")) {
+        VARIABLES.weather_state.var_name = (DeepIntelligence.param("weather_state:var") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:sunny")) {
+        VARIABLES.weather_state.states.sunny.value = (DeepIntelligence.param("weather_state:s:sunny") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:cloudy")) {
+        VARIABLES.weather_state.states.cloudy.value = (DeepIntelligence.param("weather_state:s:cloudy") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:partly_cloudy")) {
+        VARIABLES.weather_state.states.partly_cloudy.value = (DeepIntelligence.param("weather_state:s:partly_cloudy") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:rain_heavy")) {
+        VARIABLES.weather_state.states.rain_heavy.value = (DeepIntelligence.param("weather_state:s:rain_heavy") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:rain_light")) {
+        VARIABLES.weather_state.states.rain_light.value = (DeepIntelligence.param("weather_state:s:rain_light") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:rain")) {
+        VARIABLES.weather_state.states.rain.value = (DeepIntelligence.param("weather_state:s:rain") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:snow")) {
+        VARIABLES.weather_state.states.snow.value = (DeepIntelligence.param("weather_state:s:snow") + "");
+    }
+
+    if (DeepIntelligence.param("weather_state:s:thunderstorms")) {
+        VARIABLES.weather_state.states.thunderstorms.value = (DeepIntelligence.param("weather_state:s:thunderstorms") + "");
+    }
+
+    // Temperature
+
     if (DeepIntelligence.param("temperature:var")) {
         VARIABLES.temperature.var_name = (DeepIntelligence.param("temperature:var") + "");
     }
@@ -252,6 +292,8 @@ window.tweekConfiguration = function () {
     if (DeepIntelligence.param("temperature:mag")) {
         VARIABLES.temperature.mag = (DeepIntelligence.param("temperature:mag") + "").trim().substr(0, 1).toLowerCase();
     }
+
+    // Other vars
 
     if (DeepIntelligence.param("humidity:var")) {
         VARIABLES.humidity.var_name = (DeepIntelligence.param("humidity:var") + "");
