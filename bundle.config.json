@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Bundle",
+        "path": "./js/",
+        "target": "bundle.js",
+        "entry": "main.js",
+        "requires": [
+            "util.js",
+            "config.js",
+            "custom-view.js",
+            "data-parse.js",
+            "render.js"
+        ]
+    }
+]

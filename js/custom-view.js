@@ -5,8 +5,7 @@
 window.DeepIntelligence = {};
 
 DeepIntelligence.loaded = false;
-DeepIntelligence.url = "https://app.deepint.net/";
-//DeepIntelligence.url = "http://localhost/";
+DeepIntelligence.url = window.ENV_API_URL || "https://app.deepint.net/";
 DeepIntelligence.token = "";
 DeepIntelligence.readyListeners = [];
 DeepIntelligence.dataCallback = null;

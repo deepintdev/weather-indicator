@@ -5,11 +5,17 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "node make-bundle.js && node minify.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "AgustinSRG",
   "license": "ISC",
   "dependencies": {
     "static-server": "^2.2.1"
+  },
+  "devDependencies": {
+    "@node-minify/clean-css": "^6.2.0",
+    "@node-minify/core": "^6.2.0",
+    "@node-minify/uglify-js": "^6.2.0"
   }
 }
