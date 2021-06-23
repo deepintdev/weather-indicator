@@ -9,6 +9,11 @@ const server = new StaticServer({
     port: 9000,               // required, the port to listen
 });
 
+server.on('request', function (req, res) {
+    res.setHeader("Cache-Control", "max-age=31536000");
+    console.log(`[REQUEST] ` + req.path);
+});
+
 server.start(function () {
     console.log('Server listening to', server.port);
-})
+});
