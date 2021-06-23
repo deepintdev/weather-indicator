@@ -23,6 +23,15 @@ var getParameterByName = function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+var paramsInHash = {};
+
+try {
+    paramsInHash = JSON.parse(atob((document.location.hash + "").substr(1)));
+    if (typeof paramsInHash !== "object" || paramsInHash === null) {
+        paramsInHash = {};
+    }
+} catch (ex) {}
+
 var jsonGET = function (url, headers, callback) {
     var xmlhttp = new XMLHttpRequest();
 
@@ -78,7 +87,7 @@ DeepIntelligence.onload = function () {
  * @param {string} key The key for the parameter
  */
 DeepIntelligence.param = function(key) {
-    return getParameterByName(encodeURIComponent(key));
+    return paramsInHash[key] || getParameterByName(encodeURIComponent(key));
 };
 
 /**
@@ -141,4 +150,3 @@ if (document.readyState === "complete") {
 } else {
     document.addEventListener("DOMContentLoaded", DeepIntelligence.onload.bind(DeepIntelligence));
 }
-
