@@ -1,10 +1,10 @@
-# Weather indicator for Deep Intelligence
+# Weather indicator for AIR-Core
 
 ## Requeriments
 
 You need a data source with at least 3 features: `timestamp`, `variable` and `value`.
 
-You need an account in [Deep Intelligence](https://app.deepint.net/)
+You need an account in [AIR-Core](https://app.air-core.io/), the data and AI platform maintained by [AIR Institute](https://air-institute.com).
 
 ## Usage
 
